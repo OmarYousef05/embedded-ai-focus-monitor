@@ -22,4 +22,4 @@ live-bluetooth-dashboard.mp4
 sensor-and-hardware-setup.mp4
 ```
 
-Matching thumbnails belong in `assets/video-thumbnails/` and should use the same base filename with `.png` where possible. Add links or clickable cards to the main README only after both the media destination and thumbnail have been verified.
+When videos become available, thumbnails may be added alongside a dedicated thumbnail directory using the same base filenames and `.png` where possible. Add links or clickable cards to the main README only after both the media destination and thumbnail have been verified.

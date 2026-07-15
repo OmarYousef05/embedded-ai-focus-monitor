@@ -70,6 +70,15 @@ This project explores how a compact embedded platform can acquire multiple real-
 
 ## System architecture
 
+<p align="center">
+  <img src="assets/diagrams/system-architecture.png" alt="Embedded multimodal focus monitoring system architecture" width="100%" />
+</p>
+
+<p align="center"><sub>Pulse and IMU inputs move through feature extraction, embedded classification, decision logic, and the optional Web Bluetooth interface.</sub></p>
+
+<details>
+<summary><strong>View the conceptual workflow</strong></summary>
+
 ```mermaid
 flowchart LR
     A[Pulse Sensor<br/>and IMU] --> B[Sensor Data<br/>Acquisition]
@@ -88,7 +97,9 @@ flowchart LR
     class G,H output;
 ```
 
-> This diagram is a conceptual project overview and does not represent the complete internal implementation.
+> This workflow is a conceptual project overview and does not represent the complete internal implementation.
+
+</details>
 
 ## Sensor feature extraction
 
@@ -103,20 +114,26 @@ The classifier uses information derived from the project’s available pulse and
 
 These signals can provide useful patterns for this prototype, but they do not provide a medical diagnosis or a perfect measure of human attention.
 
+<p align="center">
+  <img src="assets/results/sensor-output.png" alt="Live sensor signal output" width="88%" />
+</p>
+
+<p align="center"><sub>Captured sensor output during project testing.</sub></p>
+
 ## Edge Impulse model training
 
-The two-class model was trained using **Edge Impulse** and optimized for deployment on Arduino hardware. Feature visualization was used to inspect separation between focused and distracted activity states. The final model performs inference directly on the embedded device.
+The two-class model was trained using **Edge Impulse** and optimized for deployment on Arduino hardware. Feature visualization was used to inspect separation between focused and distracted activity states. The supplied firmware performs inference directly on the embedded device.
 
-<!-- Future Edge Impulse image gallery. Uncomment each image only after the matching file is supplied and reviewed.
-
-| Feature extraction | Feature visualization |
-|---|---|
-| ![Edge Impulse feature extraction](assets/edge-impulse/feature-extraction.png) | ![Edge Impulse feature visualization](assets/edge-impulse/feature-visualization.png) |
-
-| Model training | Confusion matrix | Deployment |
-|---|---|---|
-| ![Edge Impulse model training](assets/edge-impulse/model-training.png) | ![Model confusion matrix](assets/results/confusion-matrix.png) | ![Arduino deployment from Edge Impulse](assets/edge-impulse/deployment.png) |
--->
+<table>
+  <tr>
+    <td width="62%" align="center"><img src="assets/edge-impulse/feature-visualization.png" alt="Edge Impulse feature visualization" /></td>
+    <td width="38%" align="center"><img src="assets/edge-impulse/model-training.png" alt="Edge Impulse neural-network training configuration" /></td>
+  </tr>
+  <tr>
+    <td align="center"><sub><strong>Feature visualization</strong> — inspected separation between focused and distracted samples.</sub></td>
+    <td align="center"><sub><strong>Model training</strong> — two-class neural-network configuration.</sub></td>
+  </tr>
+</table>
 
 ## Hardware platform
 
@@ -133,12 +150,11 @@ The two-class model was trained using **Edge Impulse** and optimized for deploym
   </tr>
 </table>
 
-<!-- Future hardware gallery. Uncomment only after the matching files are supplied and reviewed.
+<p align="center">
+  <img src="assets/hardware/hardware-schematic.png" alt="Focus and distraction detection system hardware schematic" width="92%" />
+</p>
 
-| Complete system | Arduino and pulse sensor | Testing setup |
-|---|---|---|
-| ![Complete focus monitoring system](assets/hardware/complete-system.jpg) | ![Arduino and HW-827 pulse sensor](assets/hardware/arduino-and-pulse-sensor.jpg) | ![Hardware testing setup](assets/hardware/testing-setup.jpg) |
--->
+<p align="center"><sub>Project hardware schematic showing the pulse-sensor connection, Arduino platform, power arrangement, and built-in IMU.</sub></p>
 
 ## Live dashboard
 
@@ -157,16 +173,16 @@ The Web Bluetooth dashboard is designed as the real-time observation layer for t
   </tr>
 </table>
 
-<!-- Future dashboard gallery. Uncomment only after the matching files are supplied and reviewed.
-
-| Focused state | Distracted state |
-|---|---|
-| ![Dashboard focused-state monitoring](assets/dashboard/focused-state.png) | ![Dashboard distracted-state detection](assets/dashboard/distracted-state.png) |
-
-| Live monitoring | Sensor readings |
-|---|---|
-| ![Live monitoring dashboard](assets/dashboard/live-monitoring.png) | ![Live dashboard sensor readings](assets/dashboard/sensor-readings.png) |
--->
+<table>
+  <tr>
+    <td width="50%" align="center"><img src="assets/dashboard/focused-state.png" alt="Focused-state dashboard output" /></td>
+    <td width="50%" align="center"><img src="assets/dashboard/distracted-state.png" alt="Distracted-state dashboard output" /></td>
+  </tr>
+  <tr>
+    <td align="center"><sub><strong>Focused state</strong> — classification, confidence, and live readings.</sub></td>
+    <td align="center"><sub><strong>Distracted state</strong> — classification, confidence, and live readings.</sub></td>
+  </tr>
+</table>
 
 ## Key features
 
@@ -201,11 +217,24 @@ The Web Bluetooth dashboard is designed as the real-time observation layer for t
 
 No unconfirmed latency, model-size, memory-use, sample-count, or F1-score values are reported here.
 
+<p align="center">
+  <img src="assets/results/confusion-matrix.png" alt="Test-session confusion matrix for instant predictions" width="72%" />
+</p>
+
+<p align="center"><sub>Recorded test-session confusion matrix for instant predictions.</sub></p>
+
 ## Image gallery
 
-The gallery will present the assembled hardware, dashboard states, Edge Impulse workflow, and evaluated results when the original project images are supplied and reviewed. Until then, image markup remains commented to prevent broken links. See [`assets/`](assets/) for the prepared media organization.
-
-<!-- Future project gallery. Add reviewed project images here using relative paths from assets/. -->
+| Project view | What it shows |
+|---|---|
+| [System architecture](assets/diagrams/system-architecture.png) | Complete signal-to-dashboard workflow |
+| [Hardware schematic](assets/hardware/hardware-schematic.png) | Pulse sensor, Arduino, power, and built-in IMU arrangement |
+| [Feature visualization](assets/edge-impulse/feature-visualization.png) | Edge Impulse feature explorer |
+| [Model training](assets/edge-impulse/model-training.png) | Neural-network training configuration |
+| [Focused dashboard](assets/dashboard/focused-state.png) | Focused classification and live telemetry |
+| [Distracted dashboard](assets/dashboard/distracted-state.png) | Distracted classification and live telemetry |
+| [Sensor output](assets/results/sensor-output.png) | Captured live sensor signal |
+| [Confusion matrix](assets/results/confusion-matrix.png) | Test-session instant-prediction outcomes |
 
 ## Video demonstrations
 
@@ -223,15 +252,7 @@ The gallery will present the assembled hardware, dashboard states, Edge Impulse 
   </tr>
 </table>
 
-No links are attached until the real demonstration files or URLs are supplied. Naming guidance is available in [`videos/README.md`](videos/README.md).
-
-<!-- Future video thumbnail locations (do not uncomment until both a thumbnail and destination are available):
-assets/video-thumbnails/complete-system-demonstration.png
-assets/video-thumbnails/focused-state-monitoring.png
-assets/video-thumbnails/distracted-state-detection.png
-assets/video-thumbnails/live-bluetooth-dashboard.png
-assets/video-thumbnails/sensor-and-hardware-setup.png
--->
+No links are attached until real demonstration files or URLs are supplied. Naming guidance is available in [`videos/README.md`](videos/README.md).
 
 ## Technologies used
 
@@ -252,18 +273,19 @@ assets/video-thumbnails/sensor-and-hardware-setup.png
 
 ## Source code structure
 
-The intended source layout is:
+The repository now includes the supplied Arduino sketches and project source notes:
 
 ```text
 src/
-├── FocusMonitor_Final.ino
-├── Feature_Collection.ino
-├── IMU_Test.ino
-├── PulseSensor_Test.ino
-└── dashboard.html
+|-- FocusMonitor_Final.ino
+|-- IMU_Test.ino
+|-- PulseSensor_Basic_Test.ino
+|-- PulseSensor_Test.ino
+|-- SOURCE_NOTES.md
+`-- README.md
 ```
 
-These implementation files have not been added. They will be included only after the actual source is supplied and reviewed. [`src/README.md`](src/README.md) describes the purpose planned for each file without fabricating implementations.
+The uploaded filenames do not always match the behavior in their contents, so [`src/README.md`](src/README.md) documents each file from direct inspection. The uploaded `dashboard.html` contained Markdown notes rather than HTML and is therefore preserved as `SOURCE_NOTES.md`; a runnable dashboard source file is not currently included.
 
 ## Challenges and engineering lessons
 
@@ -292,13 +314,11 @@ It also reinforces an important interpretation lesson: a classifier can recogniz
 
 ## Final technical report
 
-The final report is planned for:
+The supplied tutorial report is available here:
 
-```text
-docs/Embedded_AI_Focus_Monitor_Final_Report.pdf
-```
+### [Open the Embedded AI Project Tutorial Report](<docs/Embedded AI Project Tutorial Report.pdf>)
 
-Once supplied, it will document the system design, data collection, model training, embedded deployment, dashboard implementation, testing, and results. The PDF is not currently included. See [`docs/README.md`](docs/README.md) for document guidance.
+The report accompanies the repository’s documentation of the project workflow. See [`docs/README.md`](docs/README.md) for file details and naming guidance.
 
 ## Authors
 
@@ -317,21 +337,16 @@ Once supplied, it will document the system design, data collection, model traini
 
 ```text
 embedded-ai-focus-monitor/
-├── README.md                    # Main project showcase
-├── assets/
-│   ├── banner/                  # Project banner assets
-│   ├── dashboard/               # Dashboard captures
-│   ├── diagrams/                # Architecture and workflow visuals
-│   ├── edge-impulse/            # Edge Impulse workflow captures
-│   ├── hardware/                # Hardware and setup photography
-│   ├── results/                 # Evaluation visuals
-│   └── video-thumbnails/        # Demonstration cover images
-├── docs/
-│   └── README.md                # Report and documentation guidance
-├── src/
-│   └── README.md                # Planned source-file guide
-└── videos/
-    └── README.md                # Demonstration media guide
+|-- README.md                    # Main project showcase
+|-- assets/
+|   |-- dashboard/               # Focused and distracted dashboard captures
+|   |-- diagrams/                # System architecture
+|   |-- edge-impulse/            # Feature and model-training captures
+|   |-- hardware/                # Hardware schematic
+|   `-- results/                 # Sensor output and confusion matrix
+|-- docs/                        # Tutorial report and documentation guide
+|-- src/                         # Supplied Arduino source and source guide
+`-- videos/                      # Future demonstration guidance
 ```
 
 ## Repository notice

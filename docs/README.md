@@ -1,20 +1,16 @@
 # Project documentation
 
-This directory is reserved for reviewed technical documentation for the **Embedded AI Focus Monitor**.
+This directory contains the supplied documentation for the **Embedded AI Focus Monitor**.
 
-## Planned report
+## Available report
 
-The final technical report should be added as:
+### [Embedded AI Project Tutorial Report](<Embedded AI Project Tutorial Report.pdf>)
 
-```text
-Embedded_AI_Focus_Monitor_Final_Report.pdf
-```
-
-The report is expected to cover the system design, data collection, model training, embedded deployment, dashboard implementation, testing, and confirmed results. It has not yet been added to this repository.
+The PDF is the tutorial report supplied with the project. Open it directly through the link above or from the root README’s **Final technical report** section.
 
 ## File guidance
 
 - Use descriptive names with words separated by underscores.
-- Preserve source documents when appropriate, alongside the exported PDF.
+- Preserve source documents when appropriate alongside the exported PDF.
 - Do not add drafts containing unreviewed results or personal data.
 - Link new documents from the main project README after verifying the path.
